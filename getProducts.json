@@ -1,0 +1,12 @@
+[
+    {
+      "id_product": 789,
+      "product_name": "Gamepad",
+      "price": 1500
+    },
+    {
+      "id_product": 633,
+      "product_name": "Мышка",
+      "price": 1200
+    }
+  ]
