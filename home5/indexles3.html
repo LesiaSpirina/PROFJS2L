@@ -44,12 +44,12 @@
           <div
             class="products-item"
             v-for="product of filtered"
-            :key="product.id_product"
+            :key="product.id_product" 
           >
-            <img :src="imgProduct" alt="img" />
+            <img :src="imgCatalog" :alt="img" />
             <div class="desc">
-              <h3>{{product.product_name}}</h3>
-              <p>{{product.price}} $</p>
+              <h3>:{{product.product_name}}</h3>
+              <p>:{{product.price}} $</p>
               <button class="buy-btn" @click="addProduct()">Купить</button>
             </div>
           </div>
