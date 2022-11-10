@@ -28,7 +28,7 @@
               <div>Итого</div>
               <div></div>
             </div>
-            <div class="cart-item" v-for="item of cartItems" :key="item.id_product">
+            <div class="cart-item" v-for="item of cartItems">
               <img :src="imgCart" :alt="img">
               <p class="product-title">{{item.product_name}}</p>
               <p class="product-quantity">{{item.quantity}}</p>
@@ -60,7 +60,8 @@
       src="https://kit.fontawesome.com/0886f682cb.js"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <!-- <script src="mainfor.js"></script> -->
     <script src="main4.js"></script>
     <!-- <script src="main3.js"></script> -->
     <!-- <script src="basket.js"></script> -->

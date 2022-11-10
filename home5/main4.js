@@ -14,12 +14,16 @@ const app = new Vue ({
         show: false//по умолчанию корзина скрыта
     },
     methods: {
-        getJson(url) {
-            return fetch()
-               .then(result => result.json())
-               .catch(error => {
-                console.log(error);
-            })
+        filter(){
+         const regexp = new RegExp(this.userSearch, 'i');
+         this.filtered = this.products.filter(product => regexp.test(product.product_name));
+        },
+        getJson(url){
+            return fetch(url)
+                .then(result => result.json())
+                .catch(error => {
+                    console.log(error);
+                })
         },
         addProduct(item){
             this.getJson('${API}/addToBasket.json')
@@ -48,32 +52,29 @@ const app = new Vue ({
                 }   
             })
         },
-        filter (){
-            const regexp = new RegExp(this.userSearch, 'i');
-            this.filtered = this.products.filter(el => regexp.test(el.product_name));
-        },
-     },
-     mounted (){
+    },   
+    //  mounted (){
        
-        this.getJson('${API + this.cartUrl}')
-        .then(data => {
-            for( let item of contents){
-                this.cartItems.push(item);
-            }
-        })
-        this.getJson('${API + this.catalogUrl}')
-        .then(data => {
-            for(let item of data){
-                this.$data.products.push(item);
-                this.$data.filtered.push(item);
-            }
-        })
-        this.getJson('getProducts.json')
-        .then(data => {
-            for(let item of data) {
-                this.products.push(item);
-                this.filtered.push(item);
-            }
-        })
-     }
-});
+    //     this.getJson('${API + this.cartUrl}')
+    //     .then(data => {
+    //         for( let item of data.contents){
+    //             this.cartItems.push(item);
+    //         }
+    //     })
+    mounted(){
+            this.getJson(`${API + this.catalogUrl}`)
+                .then(data => {
+                    for(let el of data){
+                        this.products.push(el);
+                    }
+                });
+             this.getJson(`getProducts.json`)
+                 .then(data => {
+                     for(let el of data){
+                         this.products.push(el);
+                     }
+                 });
+        }
+    })
+     
+
