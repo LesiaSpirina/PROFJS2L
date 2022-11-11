@@ -1,80 +1,87 @@
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 
-const app = new Vue ({
+const app = new Vue({
     el: '#app',
     data: {
         catalogUrl: '/catalogData.json',
         cartUrl: '/getBasket.json',
-        products: [],//массив для товаров каталога
-        cartItems: [],//массив для товаров корзины
-        filtered: [],//массив отфильтрованных товаров в поисковике
-        imgCatalog: 'img/3.jpg',//картинка товара в каталоге
-        imgCart: 'img/3.jpg',//картинка товара в корзине
-        userSearch: "",//поисковик-фильтр
-        show: false//по умолчанию корзина скрыта
+        addUrl: '/addToBasket.json',
+        deleteUrl: '/deleteFromBasket.json',
+        products: [],
+        cart: [],
+        filtered: [],
+        imgCatalog: 'img/1.jpg',
+        imgCart: 'img/1.jpg',
+        userSearch: '',
+        show: false
     },
     methods: {
-        filter(){
-         const regexp = new RegExp(this.userSearch, 'i');
-         this.filtered = this.products.filter(product => regexp.test(product.product_name));
-        },
-        getJson(url){
-            return fetch(url)
-                .then(result => result.json())
-                .catch(error => {
-                    console.log(error);
-                })
+        async getJson(url){
+            try {
+                const result = await fetch(url);
+                return await result.json();
+            } catch (error) {
+                console.log(error);
+            }
         },
         addProduct(item){
-            this.getJson('${API}/addToBasket.json')
-            .then(data => {
-                if(data.result === 1) {
-                    let findItem = this.cartItems.find(product => product.id_product === item.id_product);
-                    if(findItem) {
-                        findItem.quantity++;
-                    } else {
-                        const prodInBasket = this.$set(item, 'quantity', 1);
-                        this.cartItems.push(prodInBasket)
+                this.getJson(`${API + this.addUrl}`)
+                .then(data => {
+                    if (data.result === 1){
+                        let findItem = this.cart.find(product =>
+                             product.id_product === item.id_product);
+                        if(findItem){
+                            findItem.quantity++;
+                        } else {
+                           let itemCart = Object.assign(item,{quantity: 1});
+                           this.cart.push(itemCart);
+                        }
                     }
+
+                })
+        },
+        removeProduct(item){
+            this.getJson( `${API + this.deleteUrl}`)
+            .then(data => {
+                if (data.result === 1) {
+                    let itemF = this.cart.find(product =>
+                        product.id_product === item.id_product);
+                    if(itemF.quantity > 1){
+                        itemF.quantity--;
+                    } else {
+                        this.cart.splice(this.cart.indexOf(itemF),1);
+                    }   
                 }
             })
-        },   
-        removeProduct(item){
-            this.getJson('${API}/deleteFromBasket.json')
-            .then(data => {
-                if(data.result === 1) {
-                    //let findItem = this.cartItems.find(product => product.id_product === item.id_product);
-                    if(findItem.quantity > 1){
-                        findItem.quantity--;
-                    } else {
-                        this.cartItems.splice(this.cartItems.indexOf(findItem),1);
-                    }
-                }   
-            })
         },
-    },   
-    //  mounted (){
-       
-    //     this.getJson('${API + this.cartUrl}')
-    //     .then(data => {
-    //         for( let item of data.contents){
-    //             this.cartItems.push(item);
-    //         }
-    //     })
+        filter(){
+            const regexp = new RegExp(this.userSearch, 'i');
+            this.filtered = this.products.filter(product =>
+                regexp.test(product.product_name));
+           },
+    },
     mounted(){
-            this.getJson(`${API + this.catalogUrl}`)
-                .then(data => {
-                    for(let el of data){
-                        this.products.push(el);
-                    }
-                });
-             this.getJson(`getProducts.json`)
-                 .then(data => {
-                     for(let el of data){
-                         this.products.push(el);
-                     }
-                 });
-        }
-    })
+       this.getJson(`${API + this.catalogUrl}`)
+           .then(data => {
+               for(let el of data){
+                   this.products.push(el);
+                   this.filtered.push(el);
+              }
+           });
+       this.getJson(`getProducts.json`)
+            .then(data => {
+                for(let el of data){
+                    this.products.push(el);
+                }
+            });
+       this.getJson(`${API + this.cartUrl}`)  
+            .then(data => {
+                for(let el of data.contents) {
+                    this.cart.push(el)
+                }
+            }) 
+    }
+})
+
      
 
