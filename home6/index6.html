@@ -12,14 +12,16 @@
       <header class="header">
         <div class="logo">SUPER SHOP</div>
         <div class="cart">
-          <filter-form ></filter-form>
+          <filter-form></filter-form>
           <!-- <form action="#" class="search-form" @submit.prevent="filter" >
             <input type="text" class="search-field" v-model="userSearch" />
             <button class="btn-search" type="submit">
              <i class="fa fa-light fa fa-magnifying-glass"></i>
             </button>
           </form> -->
-          <button class="btn-cart" type="button" @click="show = !show">Корзина</button>
+          <button class="btn-cart" type="button" @click="show = !show">
+            Корзина
+          </button>
           <!-- <div class="cart-block" v-show="show" > 
             <div class="cart-header cart-style">
               <div>Товар</div>
@@ -38,7 +40,11 @@
               <button class="dlt-btn" @click="removeProduct(item)">X</button>
             </div> 
           </div> -->
-          <cart :cart-items='cartItems' :img="imgCart" :visibility="show"></cart>
+          <cart
+            :cart-items="cartItems"
+            :img="imgCart"
+            :visibility="show"
+          ></cart>
         </div>
       </header>
       <main class="container">
@@ -56,16 +62,24 @@
             </div>
           </div>
         </div> -->
-        <products :products="filtered" :img="imgCatalog" @add-product="addProduct"></products>
+        <products
+          :products="filtered"
+          :img="imgCatalog"
+          @add-product="addProduct"
+        ></products>
       </main>
     </div>
-    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+      integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="CartComponents.js"></script>
     <script src="ProductComponents.js"></script>
     <script src="FilterComponents.js"></script>
     <script src="main6.js"></script>
-   
   </body>
 </html>
 <!-- <i class="fa fa-light fa fa-magnifying-glass"></i> -->
