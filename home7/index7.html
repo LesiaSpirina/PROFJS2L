@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shop</title>
+    <link rel="stylesheet" href="style6.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <div class="logo">SUPER SHOP</div>
+        <div class="cart">
+          <filter-form></filter-form>
+         
+          <button class="btn-cart" type="button" @click="show = !show">
+            Корзина
+          </button>
+          
+          <cart
+            :cart-items="cartItems"
+            :img="imgCart"
+            :visibility="show"
+          ></cart>
+        </div>
+      </header>
+      <main class="container">
+      <error-div v-show='dataError' class="errordiv"></error-div>
+        <products
+          :products="filtered"
+          :img="imgCatalog"
+          @add-product="addProduct"
+        ></products>
+      </main>
+    </div>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+      integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="CartComponents7.js"></script>
+    <script src="ProductComponents7.js"></script>
+    <script src="FilterComponent7.js"></script>
+    <script src="ErrorComponent.js"></script>
+    <script src="main7.js"></script>
+  </body>
+</html>
+
