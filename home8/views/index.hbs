@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INDEX</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="wrapper">
+        <div class="content">
+          <header class="header">
+            <div class="container">
+              <div class="top-header">
+                <div class="top-header-block">
+                  <header-leftdiv></header-leftdiv>
+                  <nav class="nav-responsiv">
+                    <div class="header-right">
+                      <div class="live-cart">
+                         <cart ref="cart"></cart>
+                      </div>
+                      <div class="header__button">
+                        <a href="#" class="button">My Account</a>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+              <nav-menu></nav-menu>
+            </div>
+          </header>
+          <error ref="error"></error>
+          <main>
+            <div class="baner">
+              <div class="container baner-block">
+                <div class="banner-line">
+                  <div class="red-height"></div>
+                  <div class="div-h">
+                    <h1 class="baner-text">
+                    THE BRAND
+                  </h1><br />
+                    <p class="baner-mini-text">
+                      OF LUXERIOUS <span class="red-word">FASHION</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+          <section-block></section-block>
+          <products ref="products"></products>
+          <div class="container">
+            <winter-block></winter-block>
+          </div>
+          <section class="subscribe">
+            <figura-block></figura-block>
+          </section>
+        </div>
+        <footer-block></footer-block>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/0886f682cb.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/ProductComponent.js"></script>
+    <script src="js/CartComponent.js"></script>
+    <script src="js/ErrorComponent.js"></script>
+    <script src="js/HeaderComponent.js"></script>
+    <script src="js/FiguraComponent.js"></script>
+    <script src="js/FooterComponent.js"></script>
+    <script src="js/NavComponent.js"></script>
+    <script src="js/SectionComponent.js"></script>
+    <script src="js/WinterComponent.js"></script>
+    <script src="js/main.js"></script>
+   
+  </body>
+</html>

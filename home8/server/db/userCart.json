@@ -1,0 +1,60 @@
+{
+    "amount": 46600,
+    "countGoods": 2,
+    "contents": [
+        {
+            "quantity": 5,
+            "id_product": 8,
+            "img_product": "img/card-8.png",
+            "img_cartproduct": "img/card-8(copy).png",
+            "product_name": "Blazer",
+            "description": "Lorem ipsum dolor sit amet,consectetur adipiscing elit",
+            "price": 550
+        },
+        {
+            "quantity": 5,
+            "id_product": 6,
+            "img_product": "img/card-6.png",
+            "img_cartproduct": "img/card-6(copy).png",
+            "product_name": "Denim",
+            "description": "Lorem ipsum dolor sit amet,consectetur adipiscing elit",
+            "price": 450
+        },
+        {
+            "quantity": 2,
+            "id_product": 2,
+            "img_product": "img/card-2.png",
+            "img_cartproduct": "img/card-2(copy).png",
+            "product_name": "Coat",
+            "description": "Lorem ipsum dolor sit amet,consectetur adipiscing elit",
+            "price": 250
+        },
+        {
+            "quantity": 2,
+            "id_product": 1,
+            "img_product": "img/card-1.png",
+            "img_cartproduct": "img/card-1(copy).png",
+            "product_name": "T-shirt",
+            "description": "Lorem ipsum dolor sit amet,consectetur adipiscing elit",
+            "price": 100
+        },
+        {
+            "quantity": 2,
+            "id_product": 7,
+            "img_product": "img/card-7.png",
+            "img_cartproduct": "img/card-7(copy).png",
+            "product_name": "Top",
+            "description": "Lorem ipsum dolor sit amet,consectetur adipiscing elit",
+            "price": 180
+        },
+        {
+            "quantity": 3,
+            "id_product": 5,
+            "img_product": "img/card-5.png",
+            "img_cartproduct": "img/card-5(copy).png",
+            "product_name": "Dress",
+            "description": "Lorem ipsum dolor sit amet,consectetur adipiscing elit",
+            "price": 850
+        }
+    ]
+}

@@ -1,0 +1,94 @@
+@keyframes myAnim {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: 50% 50%;
+	}
+
+	15% {
+		transform: translateX(-30px) rotate(-6deg);
+	}
+
+	30% {
+		transform: translateX(15px) rotate(6deg);
+	}
+
+	45% {
+		transform: translateX(-15px) rotate(-3.6deg);
+	}
+
+	60% {
+		transform: translateX(9px) rotate(2.4deg);
+	}
+
+	75% {
+		transform: translateX(-6px) rotate(-1.2deg);
+	}
+}
+@keyframes myAnim3 {
+	0% {
+		background-position: center top;
+		background-size: 100%;
+	}
+
+	100% {
+		background-position: center top;
+		background-size: 150%;
+	}
+}
+@keyframes myAnim2 {
+	0% {
+		opacity: 1;
+		transform: rotate(0) scale(1);
+	}
+
+	100% {
+		opacity: 0;
+		transform: rotate(-540deg) scale(0);
+	}
+}
+@keyframes myAnim1 {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 1;
+		transform: translateY(-45px);
+	}
+
+	24% {
+		opacity: 1;
+	}
+
+	40% {
+		animation-timing-function: ease-in;
+		transform: translateY(-24px);
+	}
+
+	65% {
+		animation-timing-function: ease-in;
+		transform: translateY(-12px);
+	}
+
+	82% {
+		animation-timing-function: ease-in;
+		transform: translateY(-6px);
+	}
+
+	93% {
+		animation-timing-function: ease-in;
+		transform: translateY(-4px);
+	}
+
+	25%,
+	55%,
+	75%,
+	87% {
+		animation-timing-function: ease-out;
+		transform: translateY(0px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
